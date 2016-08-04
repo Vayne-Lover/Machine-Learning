@@ -11926,7 +11926,13 @@ Standard deviation of prices: $165,171.13
 <p><strong>Answer: </strong>
 Firstly i want to say that it's hard to tell whether the RM can increase MDEV or not.You can imagine,if you have a lot of money,you may want to choose a place where you can build a big house which may have many m^2.However,some people like to live close to others to feel the love from neighborhood.But after i see the csv i find that usually RM can increase the MDEV.
 Secondly in csv i find when LSTAT increases MDEV decreases.
-Thirdly i also find when PTRATIO increases MDEV decreases.</p>
+Thirdly i also find when PTRATIO increases MDEV decreases.
+<br>
+In another way,i mean that:
+<br>
+For the RM,the higher the room number is,the larger house it is.And a larger house refers to higher MDEV.
+For the LSTAT,the LSTAT reflect the net worth of houseowner.Rich people usually live in good place.we know if LSTAT is low then the house owner have a lot of money,which refers to higher MDEV.
+For the PTRATIO,the higher is,a teacher will teacher more children,means it won't use too much money,and it will refers to lower MDEV.</p>
 
 </div>
 </div>
@@ -12088,7 +12094,7 @@ Thirdly i also find when PTRATIO increases MDEV decreases.</p>
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;train_test_split&#39;</span>
 <span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="c1"># TODO: Shuffle and split the data into training and testing subsets</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
 <span class="c1"># Success</span>
 <span class="k">print</span> <span class="s2">&quot;Training and testing split was successful.&quot;</span>
@@ -13247,7 +13253,8 @@ NUoAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-I choose max_depth=3.As we can see in picture,when the training points added the score of Testing increased and the score of Training decreased.And when we see the tendency of two curves we can know that both of them converge to the score 0.75.</p>
+I choose max_depth=3.As we can see in picture,when the training points added the score of Testing increased and the score of Training decreased.And when we see the tendency of two curves we can know that both of them converge to the score 0.75.
+Besides,we can find in the picture that when the training points is 350 it looks like converging to 0.75.So if we add more training points it won't benefit the model.</p>
 
 </div>
 </div>
@@ -13795,6 +13802,9 @@ Firstly Grid Search can search for estimator parameters.We can set different val
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
 For example we choose k=5,and we will use 5 times to cross validation.In another way,we use all the dataset to test and optimize the model.And it can also avoid the problem without testing set.</p>
+<h4 id="Supplement">Supplement<a class="anchor-link" href="#Supplement">&#182;</a></h4><p>k-fold cross-validation means that we randomly divide the data into k parts,and we choose one part for test set,another k-1 for training set,we do k times cross-validation,then the k results can be averaged to produce a single estimation.Cause of doing k times cross-validation,it costs more time.
+<br>
+For example,if data have 200 points and we let k=10,then randomly divide 200 points into 10 parts and each part has 20 points.In first time,i choose 1 part for test,another 2,3,...,20 parts for training.In second time,i choose 2 part for test,another 1,3,4,5,...,20 for training,and so on.And last we average 20 results to a estimation.</p>
 
 </div>
 </div>
