@@ -11806,7 +11806,7 @@ In my opinion,it's obviously a classification,because the answer is yes or no.</
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -11858,7 +11858,7 @@ In my opinion,it's obviously a classification,because the answer is yes or no.</
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
@@ -11874,7 +11874,7 @@ In my opinion,it's obviously a classification,because the answer is yes or no.</
 <span class="n">n_failed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;no&#39;</span><span class="p">)</span>
 
 <span class="c1"># TODO: Calculate graduation rate</span>
-<span class="n">grad_rate</span> <span class="o">=</span> <span class="n">n_passed</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="p">(</span><span class="n">n_passed</span><span class="o">+</span><span class="n">n_failed</span><span class="p">)</span><span class="c1">#Here we should take care that we must times 100 first or use float()</span>
+<span class="n">grad_rate</span> <span class="o">=</span> <span class="n">n_passed</span><span class="o">*</span><span class="mf">100.0</span><span class="o">/</span><span class="p">(</span><span class="n">n_passed</span><span class="o">+</span><span class="n">n_failed</span><span class="p">)</span><span class="c1">#Here we should take care that we must times 100 first or use float()</span>
 
 <span class="c1"># Print the results</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
@@ -11898,7 +11898,7 @@ In my opinion,it's obviously a classification,because the answer is yes or no.</
 Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
-Graduation rate of the class: 67.00%
+Graduation rate of the class: 67.09%
 </pre>
 </div>
 </div>
@@ -11921,7 +11921,7 @@ Graduation rate of the class: 67.00%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature columns</span>
@@ -12003,7 +12003,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12074,7 +12074,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import any additional functionality you may need here</span>
@@ -12084,9 +12084,9 @@ Feature values:
 
 <span class="c1"># Set the number of testing points</span>
 <span class="n">num_test</span> <span class="o">=</span> <span class="n">X_all</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">num_train</span>
-<span class="n">ts</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">num_test</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">num_train</span><span class="o">+</span><span class="n">num_test</span><span class="p">)</span>
+<span class="c1">#ts=float(num_test)/(num_train+num_test)</span>
 <span class="c1"># TODO: Shuffle and split the dataset into the number of training and testing points above</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">ts</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="c1"># Show the results of the split</span>
 <span class="k">print</span> <span class="s2">&quot;Training set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="k">print</span> <span class="s2">&quot;Testing set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -12103,8 +12103,8 @@ Feature values:
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Training set has 300 samples.
-Testing set has 95 samples.
+<pre>Training set has 95 samples.
+Testing set has 300 samples.
 </pre>
 </div>
 </div>
@@ -12157,24 +12157,25 @@ Testing set has 95 samples.
 <p><strong>Answer: </strong></p>
 <h3 id="SVM">SVM<a class="anchor-link" href="#SVM">&#182;</a></h3><ul>
 <li>We may use SVM to predict if student grade can pass the test based on many features:)</li>
-<li>It is effective in high dimensional spaces.So if we have many features it may perform well.</li>
+<li>It is effective in high dimensional spaces,and have a good margin.So if we have many features it may perform well.</li>
 <li>When the number of features is much greater than the number of samples, it may give bad performances.</li>
-<li>If the data has many features i may take into consideration.
+<li>For example if given data have 3000 different features i will choose SVM cause it have good performance for high dimention features.
 <br></li>
 </ul>
 <h3 id="GaussianNB">GaussianNB<a class="anchor-link" href="#GaussianNB">&#182;</a></h3><ul>
 <li>We may use GaussianNB to classify if an email is spam.</li>
-<li>It can peform well when we need to calculate the probability to classify,and it has a advantage that it won't make model very complex.</li>
+<li>It can peform well when we need to calculate the probability to classify,and it has a advantage that it won't make model very complex,and it also perform well in case of categorical input variables compared to numerical variables..</li>
 <li>It's really naive that it consider everything isolated incident.If it's not indepent event it may give bad performances.</li>
-<li>When i know the question looks like NLP i may use it.
+<li>For example if give us some information about customer's look at some goods and spend how much time in some goods,and the target is to build a recommendation system i will choose GaussianNB.
 <br></li>
 </ul>
 <h3 id="KNN">KNN<a class="anchor-link" href="#KNN">&#182;</a></h3><ul>
 <li>We can use KNN to predict the price of a house.</li>
 <li>It has low cost if we need to re-practice.When the data have many overlapping features it may perform well.</li>
 <li>It's a lasy learner and if the data is not balanced it may give bad performances.</li>
-<li>If the data sample looks like big and features look like overlipping i may use it.</li>
+<li>If i find that we need to build a model which just cost a little time i will choose knn.Besides,if i find that many data looks like clustering together i may choose KNN.</li>
 </ul>
+<h3 id="More">More<a class="anchor-link" href="#More">&#182;</a></h3><p>In my view,we usually won't just one model,we can build many model together and use gridsearch to find the best model.</p>
 
 </div>
 </div>
@@ -12556,17 +12557,29 @@ In my opinion,i will choose SVM for the best model.We can see in the table that 
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
 <br>
-For example,There are chicken and wolves,in order to avoid eating by wolves,you need to build a wall.
+Firstly we should talk about the classifier,There are chicken and wolves,in order to avoid eating by wolves,you need to build a wall.
 <br>
 How to build the wall?
 <br>
 Obviously we need to build our wall to divide them into two sides.
 <br>
-And SVM works like the wall.
+And classifier works like the wall.
 <br>
 Then we should try many times to build the wall,decide where to build the wall.And when chicken and wolves are separated the wall is correct and the model is trained successfully.
 <br>
 When we predict,we can see that if there is a wolf in chicken,the wall doesn't work well,and the model doesn't work well.</p>
+<h4 id="My-Implementation">My Implementation<a class="anchor-link" href="#My-Implementation">&#182;</a></h4><p>In my view,i think SVM is essentially a two class classifier also the optimal margin classifier.Then i will say to layman.
+I want to add that the wall above is not only can be a linear wall,but also can be not linear,which depends on the kernels.SVM has an important concept is to use margin.
+<br>
+For example,there are 4 numbers:
+<br>
+-10,-9,9,10
+<br>
+We know that we can divide them into -10,-9 and 9,10.But there can be so many different walls to use,like -5,-2,7,8.But SVM won't choose them,it will choose 0.
+<br>
+Why?
+<br>
+Because it has the best margin,which can get the minimum square distance between 9,10 and -9,-10.You can have a try,choose 5 for example,you will get 462,but choose SVM you will get 362.And it's the benefit of SVM.</p>
 
 </div>
 </div>
