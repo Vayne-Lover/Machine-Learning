@@ -12,10 +12,11 @@ class LearningAgent(Agent):
         self.planner = RoutePlanner(self.env, self)
         
         # TODO: Initialize any additional variables here
-        self.Q0=10
+        self.Q0=3
         self.QSA={}
         self.init=True
-        self.alpha=0.7
+        self.alpha=0.5
+        self.epsilon=0.9
         self.gamma=0.3
         self.totalSteps=0
         self.totalRewards=0
@@ -43,8 +44,11 @@ class LearningAgent(Agent):
             self.QSA[self.state]={None:self.Q0,'forward':self.Q0,'left':self.Q0,'right':self.Q0}
             action = random.choice([None, 'forward', 'left', 'right'])
         else:
-            bestAction={action:Q for action, Q in QSA[self.state].items() if Q == max(QSA[self.state].values())}
-            action=random.choice(bestAction.keys())
+            if random.random()<self.epsilon:
+                bestAction={action:Q for action, Q in QSA[self.state].items() if Q == max(QSA[self.state].values())}
+                action=random.choice(bestAction.keys())
+            else:
+                action=random.choice([None, 'forward', 'left', 'right'])
         
         # Execute action and get reward
         reward = self.env.act(self, action)
