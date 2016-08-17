@@ -16,7 +16,7 @@ class LearningAgent(Agent):
         self.QSA={}
         self.init=True
         self.alpha=0.5
-        self.epsilon=0.9
+        self.epsilon=0.1
         self.gamma=0.3
         self.totalSteps=0
         self.totalRewards=0
@@ -44,7 +44,7 @@ class LearningAgent(Agent):
             self.QSA[self.state]={None:self.Q0,'forward':self.Q0,'left':self.Q0,'right':self.Q0}
             action = random.choice([None, 'forward', 'left', 'right'])
         else:
-            if random.random()<self.epsilon:
+            if random.random()>self.epsilon:
                 bestAction={action:Q for action, Q in QSA[self.state].items() if Q == max(QSA[self.state].values())}
                 action=random.choice(bestAction.keys())
             else:
